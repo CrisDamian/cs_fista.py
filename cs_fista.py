@@ -4,7 +4,7 @@ import numpy as np
 from skimage.restoration import denoise_tv_chambolle
 
     
-class CS_solver_FISTA:
+class Fista:
     """
     Class for making Compressive Sensing reconstrunctions using the  
     Fast Shrinkage Thresholding Algorithm (FISTA).   

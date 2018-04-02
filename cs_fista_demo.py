@@ -18,7 +18,7 @@ from matplotlib import pyplot as plt
 plt.rcParams['image.cmap']='gray'
 from time import clock    
 
-from cs_fista import CS_solver_FISTA 
+from cs_fista import Fista
 
 def total_variation(X):
     """
@@ -64,7 +64,7 @@ print('LS Runtime=', runtime)
 print('LS PSNR=',10*np.log10(1/np.var(E0-I)))  
 
 # Total Variation CS estimate
-solver = CS_solver_FISTA(p, 'tv', pt, 1.0e-2)
+solver = Fista(p, 'tv', pt, 1.0e-2)
 t1 = clock()
 E = solver.reconstruct(D)
 runtime = clock()-t1
