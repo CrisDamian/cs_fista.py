@@ -63,6 +63,7 @@ runtime = clock()-t1
 print('LS Runtime=', runtime)
 print('LS PSNR=',10*np.log10(1/np.var(E0-I)))  
 
+# Total Variation CS estimate
 solver = CS_solver_FISTA(p, 'tv', pt, 1.0e-2)
 t1 = clock()
 E = solver.reconstruct(D)
