@@ -141,8 +141,8 @@ class CS_solver_FISTA:
             
             # Gradient descent
             r = -phit(phi(Y) - D)
-            mu = np.sum(r**2)/np.sum(r*phit(phi(r)))
-            mu = mu if np.isfinite(mu) else 1
+            curve = np.sum(r*phit(phi(r)))
+            mu = np.sum(r**2)/curve if curve else 1
             V = Y + mu * r
             
             X1 = self.proximal(V, 2*mu*weight)
