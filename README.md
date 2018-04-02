@@ -1,5 +1,5 @@
 # cs_fista.py
-Fast Iterative Shrinkage Thresholding solver for CS problems.
+Fast Iterative Shrinkage Thresholding solver for Compressive Sensing problems.
 
 ## Dependecies
 It needs Python3 with Numpy and Scikit-image.
