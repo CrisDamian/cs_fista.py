@@ -37,7 +37,7 @@ class Fista:
                 
                 argmin x of sum((x-y)**2) + lmb*f(x)
             
-            - If 'l1' of None (default) then L1-norm regularisation is used.
+            - If 'l1' or None (default) then L1-norm regularisation is used.
             
             - If 'tv' then Total Variation regularisation is used using 
               Chambolle's algorithm.
