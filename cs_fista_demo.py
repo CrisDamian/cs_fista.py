@@ -37,7 +37,7 @@ print("Number of samples =",n)
 print("Number of measurements =",m)
 
 # Original Image      
-ishape = (n**.5,)*2
+ishape = (int(n**.5),)*2
 I = data.binary_blobs(ishape[0])
 I = np.asarray(I, dtype=float)
 print('Image TV=', total_variation(I))
