@@ -2,7 +2,7 @@
 Fast Iterative Shrinkage Thresholding solver for Compressive Sensing problems.
 
 ## Dependecies
-It needs Python3 with Numpy and Scikit-image.
+It needs Python3 with Numpy, Scikit-image and FHT.
 
 ## Usage 
 
