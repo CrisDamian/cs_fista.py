@@ -11,7 +11,7 @@ Usage demonstration of cs_fista.py
 """
 
 import numpy as np
-from skimage import data
+from skimage import data, metrics
 from scipy.ndimage import convolve1d
 from matplotlib import pyplot as plt
 plt.rcParams['image.cmap']='gray'
@@ -59,7 +59,9 @@ E0 = np.reshape(e0, ishape)
 runtime = clock()-t1
 
 print('Naive Runtime=', runtime)
-print('Naive PSNR=', 10*np.log10(1/np.var(E0-I)))
+print('Naive PSNR=', metrics.peak_signal_noise_ratio(I,E0))
+print('Naive SSIM=', metrics.structural_similarity(I,E0))
+
 
 # Total Variation CS estimate
 solver = Fista(p, 'tv', pt, 1e-2)
@@ -67,14 +69,15 @@ t1 = clock()
 E = solver.reconstruct(D)
 runtime = clock()-t1
 
-print('TV Runtime=', runtime)
-print('TV PSNR=', 10*np.log10(1/np.var(E-I)))  
+print('CS Runtime=', runtime)
+print('CS PSNR=', metrics.peak_signal_noise_ratio(I,E))
+print('CS SSIM=', metrics.structural_similarity(I,E))
 
 f, s = plt.subplots(1,3)
 s[0].imshow(E0)
-s[0].set_title("LS reconstrucion")
+s[0].set_title("Naive reconstrucion")
 s[1].imshow(E)
-s[1].set_title("TV reconstrucion")
+s[1].set_title("CS reconstrucion")
 s[2].imshow(I)
 s[2].set_title("Original Image")
 plt.show()
